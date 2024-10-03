@@ -6,11 +6,40 @@ Power BI templates for AEC use
 
 # What
 
-An dashboard showing estimated CO2, MPG (MilieuPrestatie Gebouwen), and cost of preset material combinations
+An dashboard showing estimated CO2, MPG (MilieuPrestatie Gebouwen), and cost of preset material combinations.
 
-## Important assumptions
+**Inputs:** building model,
 
-- The CO2, MKI (Milieukostenindicator) and cost numbers in database file are for illustration purpose; they should not be regarded as real data.
+# How to use
+
+## Prerequisit
+
+To view:
+
+- No prerequisit
+
+To edit:
+
+- Power BI Desktop
+- Speckle connector for Power BI
+- 
+
+## Terminology and calculation
+
+### Terms
+
+**Life span [levensduur, in years]:** used in MPG and CO2 calculation. As Power BI parameters.
+
+**BVO [gross floor area, in m2]:** used in MPG and CO2 calculation. As Power BI parameters. In future, a dummy element can be used if the area is to be read into Power BI from the model, e.g. a dummy room or floor.
+
+### Calculation
+**Embedded CO2 = sum of embedded CO2 of all elements / BVO**
+
+**MPG = sum of MKI of all elements / BVO / life span**
+
+**Cost = sum of cost of all elements**
+
+Note that, unlike MPG and embedded CO2, material cost is not entirely based on the volumnes of material. You may want to customise the cost calculation rules to suit your need.
 
 - Different quantities for different materials:
 - 
@@ -20,17 +49,7 @@ Here it is assumed that the building model is designed with certain material ass
 
 The conversion in material quantity can be found in **parameters.
 
+## Important assumptions
 
-## Calculation
-
-**Life span [levensduur, in years]:** used in MPG and CO2 calculation. As Power BI parameters.
-
-**BVO [gross floor area, in m2]:** used in MPG and CO2 calculation. As Power BI parameters. In future, a dummy element can be used if the area is to be read into Power BI from the model, e.g. a dummy room or floor.
-
-
-**CO2** = sum of CO2 of all elements / BVO
-
-**MPG** = sum of MKI of all elements / BVO / life span
-
-**Cost** = sum of cost of all elements
+- The CO2, MKI (Milieukostenindicator) and cost numbers in database file are for illustration purpose; they should not be regarded as real data.
 
